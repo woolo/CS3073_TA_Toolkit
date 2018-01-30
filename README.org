@@ -1,16 +1,16 @@
-* TA Toolkit for Lab 0
-** How to use it
-*** cd into lab0 directory
+* CS3073 TA Toolkit
+** Lab 0
+1. cd into lab0 directory:
 #+BEGIN_SRC shell
   cd CS3073_TA_Toolkit/lab0
 #+END_SRC
-*** Create another directory called works in the same directory with lab0_auto.sh
+2. Create another directory called works in the same directory with lab0_auto.sh:
 #+BEGIN_SRC shell
   mkdir works
 #+END_SRC
-*** Put students' homework into works directory
-*** Run the script
+3. Put students' homework into works directory.
+4. Run the script:
 #+BEGIN_SRC shell
   ./lab0_auto.sh
 #+END_SRC
-*** The evaluation of each students work are now in logs directory
+5. The evaluation of each students work are now in logs directory.
