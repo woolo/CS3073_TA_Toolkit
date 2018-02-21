@@ -21,14 +21,15 @@ zic123
 #+END_SRC
 
 ** Step4
-Sign zic123.txt with your private key using gpg according to [[https://www.gnupg.org/gph/en/manual/x135.html][The GNU Privacy Handbook]].
-
+Sign the .txt file you just created in Step3 (for example, zic123.txt)
+with your private key using gpg according to [[https://www.gnupg.org/gph/en/manual/x135.html][The GNU Privacy Handbook]].
 #+BEGIN_SRC shell
   gpg --output zic123.txt.sig --sign zic123.txt
 #+END_SRC
 
 ** Step5
-Upload the following three files to Harvey:
+Upload the following three files (the zix123 here should be your own
+TU NetID) to Harvey:
 #+BEGIN_SRC
 zic123.public.gpg-kep
 zic123.txt
