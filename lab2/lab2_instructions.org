@@ -1,0 +1,36 @@
+* Lab 2
+** Step 1
+[[https://alexcabal.com/creating-the-perfect-gpg-keypair/][Creating the perfect GPG keypair]] is a detailed and up-to-date
+   article that will guide you through creating your own GPG
+   keypair. Please create the GPG according to the article.
+*** Notice that the following section can be skipped in this lab:
+**** Adding a picture
+**** In case of emergency
+
+** Step2
+Export your public key created in step one as
+your_TU_id.public.gpg-key (for example, zic123.public.gpg-key)
+
+** Step3
+Create a message named as your_TU_id.txt (for example, zic123.txt)
+which include three lines as follow (your name, your id, your netid):
+#+BEGIN_SRC
+Jerry Chai
+14912345
+zic123
+#+END_SRC
+
+** Step4
+Sign zic123.txt with your private key using gpg according to [[https://www.gnupg.org/gph/en/manual/x135.html][The GNU Privacy Handbook]].
+
+#+BEGIN_SRC shell
+  gpg --output zic123.txt.sig --sign zic123.txt
+#+END_SRC
+
+** Step5
+Upload the following three files to Harvey:
+#+BEGIN_SRC
+zic123.public.gpg-kep
+zic123.txt
+zic123.txt.sig
+#+END_SRC
