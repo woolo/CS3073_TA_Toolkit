@@ -1,0 +1,17 @@
+#+BEGIN_QUOTE
+(5) Name, Email, username included
+(5) Gzipped tarball
+ -2 if .zip or other format
+(25) Treasure Hunt: images
+ 5 points per image, plus 5 points free.
+(25) Treasure Hunt: Descriptions
+5 points per description, plus 5 points free.
+(10) /var
+ -3 points if their definition is egregiously wrong
+(10) /dev
+-3 points if their definition is egregiously wrong
+(10) diskfree.txt
+-5 if they include something but the wrong thing.
+(10) Vendor ID
+-5 if they include something but the wrong thing.
+#+END_QUOTE
