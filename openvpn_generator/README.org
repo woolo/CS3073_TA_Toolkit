@@ -1,0 +1,18 @@
+* OpenVPN Generator
+Gnerate all the OpenVPN confidential with one click.
+** How to use
+*** Install dependency
+[[https://github.com/Nyr/openvpn-install][openvpn-install]] is a popular script for setting up OpenVPN.
+#+BEGIN_SRC bash
+  wget https://git.io/vpn -O openvpn-install.sh && bash openvpn-install.sh
+#+END_SRC
+*** Prepare indentity info
+Put student's email address in id.txt as:
+#+BEGIN_QUOTE
+example@utulsa.edu
+another-example@utulsa.edu
+#+END_QUOTE
+*** Run
+#+BEGIN_SRC bash
+  bash run.sh id.txt
+#+END_SRC
