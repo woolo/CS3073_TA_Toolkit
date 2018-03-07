@@ -6,6 +6,22 @@
 *** Notice that the following section can be skipped in this lab:
 **** Adding a picture
 **** In case of emergency
+*** Known issue
+**** Not enough entropy
+If you receive a complain like this when trying to generate the GPG key pair:
+#+BEGIN_QUOTE
+**We need to generate a lot of random bytes. It is a good idea to perform
+some other action (type on the keyboard, move the mouse, utilize the
+disks) during the prime generation; this gives the random number
+generator a better chance to gain enough entropy.
+Not enough random bytes available.  Please do some other work to give
+the OS a chance to collect more entropy! (Need 210 more bytes)**
+#+END_QUOTE
+Please try the following steps before generating the key pair again:
+#+BEGIN_SRC bash
+  sudo apt-get install rng-tools
+  sudo rngd -r /dev/urandom
+#+END_SRC
 
 ** Step2
 Export your public key created in step one as
