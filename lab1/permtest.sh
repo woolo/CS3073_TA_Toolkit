@@ -10,7 +10,7 @@ permtest.sh -- test permissions for the assignment
 usage: sudo ./permtest.sh DIR
 
 ... where DIR is the "root level" of the student's submission.
-For example, submissions created by 'submit.sh' will be nested 
+For example, submissions created by 'submit.sh' will be nested
 two levels deep, e.g., 'root/root-permissions'. Accordingly the
 correct usage would be:
 
@@ -41,11 +41,11 @@ function user_in_group() {
 #                or "quiet" to suppress output if using function
 #				 for boolean output
 #
-# output: prints evidence for non-membership and sets GRP_BOOL to 
+# output: prints evidence for non-membership and sets GRP_BOOL to
 #         'in' or 'out' depending on truth value.
 #
 #         if question-mode is 'quiet' does not print output.
-# 
+#
 # there are two ways that a user can be in a group. Using 'emp' and 'larry' as
 # examples:
 #
@@ -71,8 +71,8 @@ function user_in_group() {
 	# test case #1 -- user is listed in group
 	if ! grep "^$GRP" group | grep $USR >> $LOG
 	then
-		GRP_PROB="$USR not in /etc/group" 
-		
+		GRP_PROB="$USR not in /etc/group"
+
 		# testing case #2
 		PRIGROUP=$(grep -E "^$USR" passwd | sed -r "s/$USR:x:[^:]+:([^:]+):.*/\1/")
 
@@ -153,42 +153,42 @@ then
 fi
 
 # ownership of admin homedirs should be ken:ken, etc.
-for OLDBIE in ken
-do
+# for OLDBIE in ken
+# do
 
-	# we need the UIDs for ken:
-	ADMU=$(grep -E "^$OLDBIE" passwd | sed -r "s/^$OLDBIE:x:([^:]+):.*$/\1/")
-	ADMG=$(grep -E "^$OLDBIE" group | sed -r "s/^$OLDBIE:x:([^:]+):.*$/\1/")
+# 	# we need the UIDs for ken:
+# 	ADMU=$(grep -E "^$OLDBIE" passwd | sed -r "s/^$OLDBIE:x:([^:]+):.*$/\1/")
+# 	ADMG=$(grep -E "^$OLDBIE" group | sed -r "s/^$OLDBIE:x:([^:]+):.*$/\1/")
 
-	if ! ls -n admins | grep $OLDBIE | grep -E "$ADMU.+$ADMG" >> $LOG
-	then
-		echo "E: $OLDBIE home ownership not correct, should be '$ADMU $ADMG'"
-		runprint $(ls -n admins | grep $OLDBIE)
-	fi
-	
-	# and permissions should be drwxrwsr-x
-	if ! ls -al admins | grep $OLDBIE | grep -E "drwxrwsr-x" >> $LOG
-	then
-		echo "E: $OLDBIE home perms not correct (s.b. drwxrwsr-x)"
-		runprint $(ls -al admins | grep $OLDBIE)
-	fi
+# 	if ! ls -n admins | grep $OLDBIE | grep -E "$ADMU.+$ADMG" >> $LOG
+# 	then
+# 		echo "E: $OLDBIE home ownership not correct, should be '$ADMU $ADMG'"
+# 		runprint $(ls -n admins | grep $OLDBIE)
+# 	fi
+
+# 	# and permissions should be drwxrwsr-x
+# 	if ! ls -al admins | grep $OLDBIE | grep -E "drwxrwsr-x" >> $LOG
+# 	then
+# 		echo "E: $OLDBIE home perms not correct (s.b. drwxrwsr-x)"
+# 		runprint $(ls -al admins | grep $OLDBIE)
+# 	fi
 
 
-done
+# done
 
-# wheel should be the group of the home directory
-if ! ls -al | grep home | grep -E "root.+$WHEEL" >> $LOG
-then
-	echo "F: home user/group not correct (s.b. root $WHEEL):"
-	runprint $(ls -al | grep home)
-fi
+# # wheel should be the group of the home directory
+# if ! ls -al | grep home | grep -E "root.+$WHEEL" >> $LOG
+# then
+# 	echo "F: home user/group not correct (s.b. root $WHEEL):"
+# 	runprint $(ls -al | grep home)
+# fi
 
-# permissions on home should be rwxrwx--x
-if ! ls -al | grep home | grep -E "(rwxrwx--x|---rwx--x)" >> $LOG
-then
-	echo "G: /home permissions are not correct (s.b. 0771/rwxrwx--x or 0071/---rwx--x)"
-	runprint $(ls -al | grep home)
-fi
+# # permissions on home should be rwxrwx--x
+# if ! ls -al | grep home | grep -E "(rwxrwx--x|---rwx--x)" >> $LOG
+# then
+# 	echo "G: /home permissions are not correct (s.b. 0771/rwxrwx--x or 0071/---rwx--x)"
+# 	runprint $(ls -al | grep home)
+# fi
 
 # homedirs in /home should be set 0750
 for EMP in larry moe curly
@@ -210,12 +210,12 @@ then
 	runprint $(ls -al | grep ballots)
 fi
 
-# ownership of ballots directory
-if ! ls -al | grep ballots | grep -E "root.+$WHEEL" >> $LOG
-then
-	echo "J: ballots ownership not correct (s.b. root $WHEEL)"
-	runprint $(ls -al | grep ballots)
-fi
+# # ownership of ballots directory
+# if ! ls -al | grep ballots | grep -E "root.+$WHEEL" >> $LOG
+# then
+# 	echo "J: ballots ownership not correct (s.b. root $WHEEL)"
+# 	runprint $(ls -al | grep ballots)
+# fi
 
 # and its permissions should be drwx----wx
 if ! ls -al | grep ballots | grep -E "(drwx----wx|d-------wx)" >> $LOG
@@ -236,21 +236,21 @@ then
 	echo "M: no tps user"
 fi
 
-# the tpsreports directory should be owned tps with group wheel
-if ! ls -al | grep tpsreports | grep -E "$TPS.+$WHEEL" >> $LOG
-then
-	echo "N: tpsreports ownership not correct, should be '$TPS $WHEEL'"
-	runprint $(ls -al | grep tpsreports)
-fi
+# # the tpsreports directory should be owned tps with group wheel
+# if ! ls -al | grep tpsreports | grep -E "$TPS.+$WHEEL" >> $LOG
+# then
+# 	echo "N: tpsreports ownership not correct, should be '$TPS $WHEEL'"
+# 	runprint $(ls -al | grep tpsreports)
+# fi
 
 
 
-# the permissions mode on tpsreports should be dwrxrws--T
-if ! ls -al | grep tpsreports | grep -E 'drwxrws--T' >> $LOG
-then
-	echo "O: tpsreports perms not correct (s.b. 3770/dwrxrws--T):"
-	runprint $(ls -al | grep tpsreports)
-fi
+# # the permissions mode on tpsreports should be dwrxrws--T
+# if ! ls -al | grep tpsreports | grep -E 'drwxrws--T' >> $LOG
+# then
+# 	echo "O: tpsreports perms not correct (s.b. 3770/dwrxrws--T):"
+# 	runprint $(ls -al | grep tpsreports)
+# fi
 
 # larry, moe, and curly should be in the emp group
 user_in_group "larry" "emp" "P"
@@ -260,8 +260,8 @@ user_in_group "curly" "emp" "P"
 
 # admins should NOT be in the emp group
 GNAME="emp"
-for UNAME in ken 
-do 
+for UNAME in ken
+do
 	user_in_group "$UNAME" "$GNAME" "quiet"
 	if [[ $GRP_BOOL == "in" ]]
 	then
@@ -282,7 +282,7 @@ user_in_group "ken" "wheel" "R"
 #fi
 GNAME="wheel"
 for UNAME in larry moe curly
-do 
+do
 	user_in_group "$UNAME" "$GNAME" "quiet"
 	if [[ $GRP_BOOL == "in" ]]
 	then
