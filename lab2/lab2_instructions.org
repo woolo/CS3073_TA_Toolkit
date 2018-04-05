@@ -51,3 +51,57 @@ zic123.public.gpg-kep
 zic123.txt
 zic123.txt.sig
 #+END_SRC
+
+** Sending an encrypted message to Jerry
+*** Find Jerry's GPG public key
+#+BEGIN_SRC shell
+  [user@email ~]$ gpg --keyserver pool.sks-keyservers.net --search-keys zic337@utulsa.edu
+  gpg: searching for "zic337@utulsa.edu" from hkp server pool.sks-keyservers.net
+  (1)	Jerry Chai <zic337@utulsa.edu>
+            4096 bit RSA key D5E661BE, created: 2017-02-08, expires: 2019-02-08
+  Keys 1-1 of 1 for "zic337@utulsa.edu".  Enter number(s), N)ext, or Q)uit > 1
+  gpg: requesting key D5E661BE from hkp server pool.sks-keyservers.net
+  gpg: lookup_hashtable failed: eof
+  gpg: key D5E661BE: public key "Jerry Chai <zic337@utulsa.edu>" imported
+  gpg: Total number processed: 1
+  gpg:               imported: 1  (RSA: 1)
+#+END_SRC
+
+*** Verify the GPG fingerprint
+One should always verify the fingerprint of the GPG before trusting
+it. The fingerprint should be gotten from a trusted channel (for
+example, through web-of-trust, through the owner's personal website
+with HTTPS connection enabled, or through the business card the owner
+gave you.)
+
+In Lab 2, the fingerprint of Jerry's public key is given through Harvey.
+#+BEGIN_SRC shell
+  [user@email ~]$ gpg --fingerprint zic337@utulsa.edu
+  pub   4096R/D5E661BE 2017-02-08 [expires: 2019-02-08]
+        Key fingerprint = 9172 A93E 82BA 3841 FFAC  6266 8638 1DC8 D5E6 61BE
+  uid                  Jerry Chai <zic337@utulsa.edu>
+  sub   4096R/44805C51 2017-02-08 [expires: 2019-02-08]
+#+END_SRC
+
+*** Encrypt the message
+#+BEGIN_SRC shell
+  [user@email ~]$ gpg -r zic337@utulsa.edu --encrypt your_TU_id.txt
+  gpg: lookup_hashtable failed: eof
+  gpg: lookup_hashtable failed: eof
+  gpg: 44805C51: There is no assurance this key belongs to the named user
+
+  pub  4096R/44805C51 2017-02-08 Jerry Chai <zic337@utulsa.edu>
+   Primary key fingerprint: 9172 A93E 82BA 3841 FFAC  6266 8638 1DC8 D5E6 61BE
+        Subkey fingerprint: 2AC0 259D A78A 620F 4265  A529 D2F7 6A9C 4480 5C51
+
+  It is NOT certain that the key belongs to the person named
+  in the user ID.  If you *really* know what you are doing,
+  you may answer the next question with yes.
+
+  Use this key anyway? (y/N) y
+#+END_SRC
+
+*** Submit the encryted message
+#+BEGIN_SRC shell
+
+#+END_SRC
