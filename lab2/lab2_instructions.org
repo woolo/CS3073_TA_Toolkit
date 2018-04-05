@@ -1,5 +1,5 @@
-* Lab 2
-** Step 1
+* Lab 2, CS 3073, Spring 2018
+** Step 1%
 [[https://alexcabal.com/creating-the-perfect-gpg-keypair/][Creating the perfect GPG keypair]] is a detailed and up-to-date
    article that will guide you through creating your own GPG
    keypair. Please create the GPG according to the article.
@@ -8,7 +8,7 @@
 **** In case of emergency
 *** Known issue
 **** Not enough entropy
-If you receive a complain like this when trying to generate the GPG key pair:
+If you receive a message like this when trying to generate the GPG key pair and the process hangs at this point:
 #+BEGIN_QUOTE
 **We need to generate a lot of random bytes. It is a good idea to perform
 some other action (type on the keyboard, move the mouse, utilize the
@@ -25,29 +25,29 @@ Please try the following steps before generating the key pair again:
 
 ** Step2
 Export your public key created in step one as
-your_TU_id.public.gpg-key (for example, zic123.public.gpg-key)
+your_TU_id.public.gpg-key (for example, jqs123.public.gpg-key)
 
 ** Step3
-Create a message named as your_TU_id.txt (for example, zic123.txt)
+Create a message named as your_TU_id.txt (for example, jqs123.txt)
 which include three lines as follow (your name, your id, your netid):
 #+BEGIN_SRC
-Jerry Chai
-14912345
-zic123
+John Q Student
+12345678
+jqs123
 #+END_SRC
 
 ** Step4
-Sign the .txt file you just created in Step3 (for example, zic123.txt)
+Sign the .txt file you just created in Step3 (for example, jqs123.txt)
 with your private key using gpg according to [[https://www.gnupg.org/gph/en/manual/x135.html][The GNU Privacy Handbook]].
 #+BEGIN_SRC shell
-  gpg --output zic123.txt.sig --sign zic123.txt
+  gpg --output jqs123.txt.sig --sign jqs123.txt
 #+END_SRC
 
 ** Step5
-Upload the following three files (the zix123 here should be your own
+Upload the following three files (the jqs123 here should be your own
 TU NetID) to Harvey:
 #+BEGIN_SRC
-zic123.public.gpg-kep
-zic123.txt
-zic123.txt.sig
+jqs123.public.gpg-kep
+jqs123.txt
+jqs123.txt.sig
 #+END_SRC
