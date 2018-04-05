@@ -88,27 +88,28 @@ In Lab 2, the fingerprint of Jerry's public key is given through Harvey.
 
 *** Create a message
 **** File name
-Create a file named your_TU_id.txt. For example, if abc123 is your
-TU_id, then the file should be called abc123.txt.  Please do not use
-any other form as the file name. Examples of common BAD file names
-include: 1491321.txt, CS.txt, i_do_not_care.txt.
+Create a file named secret-message-your_TU_id.txt. For example, if
+abc123 is your TU_id, then the file should be called
+secret-message-abc123.txt.  Please do not use any other form as the
+file name. Examples of common BAD file names include:
+secret-message-1491321.txt, CS.txt, i_do_not_care.txt.
 
 **** Content in the file
 There should be two lines in your file. The first line is "The meaning
 of life is 42.".  The second line is "Name: Your Name". Please include
 the string "Name: " on your second line.
 #+BEGIN_SRC shell
-  [user@email ~]$ cat zic337.txt
+  [user@email ~]$ cat secret-message-zic337.txt
   The meaning of life is 42.
   Name: Jerry Chai
 #+END_SRC
 
 *** Encrypt the message
 #+BEGIN_SRC shell
-  [user@email ~]$ gpg -r zic337@utulsa.edu --encrypt your_TU_id.txt
-  gpg: lookup_hashtable failed: eof
-  gpg: lookup_hashtable failed: eof
-  gpg: 44805C51: There is no assurance this key belongs to the named user
+  [user@email ~]$ gpg -r zic337@utulsa.edu --encrypt
+  secret-message-your_TU_id.txt gpg: lookup_hashtable failed: eof gpg:
+  lookup_hashtable failed: eof gpg: 44805C51: There is no assurance this
+  key belongs to the named user
 
   pub  4096R/44805C51 2017-02-08 Jerry Chai <zic337@utulsa.edu>
    Primary key fingerprint: 9172 A93E 82BA 3841 FFAC  6266 8638 1DC8 D5E6 61BE
@@ -123,8 +124,8 @@ the string "Name: " on your second line.
 
 *** Submit the encryted message
 After executing the command line above, you should get a file called
-"your_TU_id.txt.gpg".
+"secret-message-your_TU_id.txt.gpg".
 #+BEGIN_SRC shell
-  [user@email ~]$ ls -l zic123.txt.gpg
-  -rw-rw-r-- 1 user user 600 Apr  5 15:28 zic123.txt.gpg
+  [user@email ~]$ ls -l secret-message-zic123.txt.gpg
+  -rw-rw-r-- 1 user user 600 Apr  5 15:28 secret-message-zic123.txt.gpg
 #+END_SRC
