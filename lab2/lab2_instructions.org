@@ -1,5 +1,5 @@
 * Lab 2
-** Step 1
+** Creaing the perfect GPG keypair
 [[https://alexcabal.com/creating-the-perfect-gpg-keypair/][Creating the perfect GPG keypair]] is a detailed and up-to-date
    article that will guide you through creating your own GPG
    keypair. Please create the GPG according to the article.
@@ -23,11 +23,12 @@ Please try the following steps before generating the key pair again:
   sudo rngd -r /dev/urandom
 #+END_SRC
 
-** Step2
+*** Export public key
 Export your public key created in step one as
 your_TU_id.public.gpg-key (for example, zic123.public.gpg-key)
 
-** Step3
+** Sign a message using your private key
+*** Create file
 Create a message named as your_TU_id.txt (for example, zic123.txt)
 which include three lines as follow (your name, your id, your netid):
 #+BEGIN_SRC
@@ -36,15 +37,15 @@ Jerry Chai
 zic123
 #+END_SRC
 
-** Step4
+*** Sign the file
 Sign the .txt file you just created in Step3 (for example, zic123.txt)
 with your private key using gpg according to [[https://www.gnupg.org/gph/en/manual/x135.html][The GNU Privacy Handbook]].
 #+BEGIN_SRC shell
   gpg --output zic123.txt.sig --sign zic123.txt
 #+END_SRC
 
-** Step5
-Upload the following three files (the zix123 here should be your own
+*** Submit files
+Upload the following three files (the zic123 here should be your own
 TU NetID) to Harvey:
 #+BEGIN_SRC
 zic123.public.gpg-kep
