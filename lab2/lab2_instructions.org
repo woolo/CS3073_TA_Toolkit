@@ -70,6 +70,24 @@ to download it is as follows:
   gpg:               imported: 1  (RSA: 1)
 #+END_SRC
 
+If you see a complain as follows:
+
+#+BEGIN_SRC shell
+  admin@debian:~$ gpg --keyserver pool.sks-keyservers.net --search-keys
+  zic337@utulsa.edu
+  gpg: failed to start the dirmngr '/usr/bin/dirmngr': No such file or
+  directory
+  gpg: connecting dirmngr at '/run/user/1000/gnupg/S.dirmngr' failed: No such
+  file or directory
+  gpg: error searching keyserver: No dirmngr
+  gpg: keyserver search failed: No dirmngr
+#+END_SRC
+
+Please try the following command before trying again:
+#+BEGIN_SRC shell
+  sudo apt-get install dirmngr --install-recommends
+#+END_SRC
+
 *** Verify the GPG fingerprint
 One should always verify the fingerprint of the GPG before trusting
 it. The fingerprint should be gotten from a trusted channel (for
