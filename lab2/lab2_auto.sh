@@ -1,18 +1,6 @@
 #!/bin/bash
 
-function file_inspect(){
-    cd $working_base_directory/top_secret
-    echo "===================================================================" >> $logfile
-    echo "========================== cat answers.txt ========================" >> $logfile
-    echo "===================================================================" >> $logfile
-    cat answers.txt >> $logfile 2>&1
-    echo "===================================================================" >> $logfile
-    echo "========================= cat diskfree.txt ========================" >> $logfile
-    echo "===================================================================" >> $logfile
-    cat diskfree.txt >> $logfile 2>&1
-}
-
-# preparisions
+# preparision
 working_base_directory=$(pwd)
 if [ ! -d $working_base_directory/logs ]; then
     mkdir logs
